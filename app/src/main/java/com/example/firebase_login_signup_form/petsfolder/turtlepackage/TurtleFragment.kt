@@ -51,7 +51,6 @@ class TurtleFragment : Fragment() {
         holder.add(PetsHelper("Common Musk Turtle"))
         holder.add(PetsHelper("African Sidenack Turtle"))
         holder.add(PetsHelper("Eastern box Turtle"))
-        holder.add(PetsHelper("Western box Turtle"))
 
         return holder
     }
