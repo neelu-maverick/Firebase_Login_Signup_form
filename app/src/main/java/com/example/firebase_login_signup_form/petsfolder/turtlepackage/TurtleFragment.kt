@@ -42,6 +42,7 @@ class TurtleFragment : Fragment() {
 
 
     private fun data(): ArrayList<PetsHelper>? {
+
         val holder: ArrayList<PetsHelper> = ArrayList()
         holder.add(PetsHelper("Red-Eared Slider"))
         holder.add(PetsHelper("Mississippi Map Turtle"))
