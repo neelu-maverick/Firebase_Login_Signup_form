@@ -7,20 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.room.Room
 import com.example.firebase_login_signup_form.adapters.CategoriesAdapter
 import com.example.firebase_login_signup_form.databinding.FragmentCategoriesViewBinding
 import com.example.firebase_login_signup_form.dataclasses.CategoriesHelper
-import com.example.firebase_login_signup_form.petsfolder.birdspackage.BirdsFragment
-import com.example.firebase_login_signup_form.petsfolder.catspackage.CatsFragment
-import com.example.firebase_login_signup_form.petsfolder.dogspackage.DogsFragment
-import com.example.firebase_login_signup_form.petsfolder.fishpackage.FishFragment
-import com.example.firebase_login_signup_form.petsfolder.horsepackage.HorsesFragment
-import com.example.firebase_login_signup_form.petsfolder.rabbitpackage.RabbitsFragment
-import com.example.firebase_login_signup_form.petsfolder.turtlepackage.TurtleFragment
+import com.example.firebase_login_signup_form.dataclasses.PetsHelper
+import com.example.firebase_login_signup_form.roomdb.PetDataDao
 import com.example.firebase_login_signup_form.roomdb.PetDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -29,7 +22,6 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
 
     lateinit var categoriesViewBinding: FragmentCategoriesViewBinding
     lateinit var categoriesAdapter: CategoriesAdapter
-    lateinit var petDatabase: PetDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +37,6 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
 
         initRecyclerView()
         categoriesAdapter.submitList(data())
-        initDatabase()
 
     }
 
@@ -84,16 +75,5 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
             6 -> findNavController().navigate(R.id.action_categoriesViewFragment_to_fishFragment)
             else -> Toast.makeText(context, "No fragment found", Toast.LENGTH_SHORT).show()
         }
-
-    }
-
-    private fun initDatabase() {
-        petDatabase = PetDatabase.getDatabase(requireContext())
-
-            GlobalScope.launch() {
-                val names = petDatabase.petDataDao().getAllNames()
-                Log.d("getData", "$names")
-
-            }
     }
 }

@@ -1,19 +1,23 @@
 package com.example.firebase_login_signup_form.petsfolder.turtlepackage
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentTurtleBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
-import com.example.firebase_login_signup_form.petsfolder.rabbitpackage.RabbitAdapter
+import com.example.firebase_login_signup_form.roomdb.PetDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class TurtleFragment : Fragment() {
     lateinit var turtleBinding: FragmentTurtleBinding
     lateinit var turtleAdapter: TurtleAdapter
+    lateinit var petDatabase: PetDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +33,7 @@ class TurtleFragment : Fragment() {
 
         initRecyclerView()
         turtleAdapter.submitList(data())
+        initDatabase()
     }
 
     private fun initRecyclerView() {
@@ -54,5 +59,17 @@ class TurtleFragment : Fragment() {
         holder.add(PetsHelper("Eastern box Turtle"))
 
         return holder
+    }
+
+    private fun initDatabase() {
+        petDatabase = PetDatabase.getDatabase(requireContext())
+
+        GlobalScope.launch {
+
+            val petDataDao = petDatabase.petDataDao()
+           val names =  petDataDao.insertAll(PetsHelper(data().toString()))
+            Log.d("NAMES","$names")
+        }
+        Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
     }
 }

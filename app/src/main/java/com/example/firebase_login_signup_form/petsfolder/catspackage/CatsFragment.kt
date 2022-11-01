@@ -1,19 +1,24 @@
 package com.example.firebase_login_signup_form.petsfolder.catspackage
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firebase_login_signup_form.databinding.FragmentCatsBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
-import com.example.firebase_login_signup_form.petsfolder.birdspackage.BirdsAdapter
+import com.example.firebase_login_signup_form.roomdb.PetDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CatsFragment : Fragment() {
 
     lateinit var catsBinding: FragmentCatsBinding
     lateinit var catsAdapter: CatsAdapter
+    lateinit var petDatabase: PetDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +34,7 @@ class CatsFragment : Fragment() {
 
         initRecyclerView()
         catsAdapter.submitList(data())
+        initDatabase()
     }
 
     private fun initRecyclerView() {
@@ -56,5 +62,18 @@ class CatsFragment : Fragment() {
         holder.add(PetsHelper("Himalayan Cat"))
 
         return holder
+    }
+
+    private fun initDatabase() {
+        petDatabase = PetDatabase.getDatabase(requireContext())
+
+        GlobalScope.launch {
+
+            val petDataDao = petDatabase.petDataDao()
+            val names = petDataDao.insertAll(PetsHelper(data().toString()))
+            Log.d("NAMES", "$names")
+
+        }
+        Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
     }
 }

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
 
-@Database(entities = [PetsHelper::class], version = 1, exportSchema = true)
+@Database(entities = [PetsHelper::class], version = 1)
 abstract class PetDatabase : RoomDatabase() {
 
     abstract fun petDataDao(): PetDataDao
