@@ -38,6 +38,7 @@ class HorsesAdapter : ListAdapter<PetsHelper, HorsesAdapter.HorsesViewHolder>(Di
 
     override fun onBindViewHolder(holder: HorsesAdapter.HorsesViewHolder, position: Int) {
         SingleRowDataBinding.bind(holder.itemView).apply {
+            imageViewId.setImageResource(currentList[position].petsImage)
             imageNameId.text = currentList[position].petsName
         }
     }

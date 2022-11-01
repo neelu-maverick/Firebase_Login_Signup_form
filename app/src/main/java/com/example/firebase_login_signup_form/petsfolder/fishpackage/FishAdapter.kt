@@ -36,6 +36,7 @@ class FishAdapter: ListAdapter<PetsHelper, FishAdapter.FishViewHolder>(Diffutil(
 
     override fun onBindViewHolder(holder: FishAdapter.FishViewHolder, position: Int) {
         SingleRowDataBinding.bind(holder.itemView).apply {
+            imageViewId.setImageResource(currentList[position].petsImage)
             imageNameId.text = currentList[position].petsName
         }
     }

@@ -27,7 +27,10 @@ class BirdsAdapter : ListAdapter<PetsHelper, BirdsAdapter.BirdsViewHolder>(Diffu
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BirdsAdapter.BirdsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): BirdsAdapter.BirdsViewHolder {
         return BirdsAdapter.BirdsViewHolder(SingleRowDataBinding.inflate(LayoutInflater.from(
             parent.context),
             parent, false))
@@ -35,6 +38,7 @@ class BirdsAdapter : ListAdapter<PetsHelper, BirdsAdapter.BirdsViewHolder>(Diffu
 
     override fun onBindViewHolder(holder: BirdsAdapter.BirdsViewHolder, position: Int) {
         SingleRowDataBinding.bind(holder.itemView).apply {
+            imageViewId.setImageResource(currentList[position].petsImage)
             imageNameId.text = currentList[position].petsName
         }
     }

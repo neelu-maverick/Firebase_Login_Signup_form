@@ -6,7 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "PetNames")
 data class PetsHelper(
-    @PrimaryKey(autoGenerate = false)
+
+    @PrimaryKey
     @ColumnInfo(name = "Name")
     val petsName: String,
+
+    @ColumnInfo(name = "Image")
+    val petsImage : Int
 )

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentCatsBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
 import com.example.firebase_login_signup_form.roomdb.PetDatabase
@@ -49,17 +50,17 @@ class CatsFragment : Fragment() {
 
     private fun data(): ArrayList<PetsHelper>? {
         val holder: ArrayList<PetsHelper> = ArrayList()
-        holder.add(PetsHelper("Persian cats"))
-        holder.add(PetsHelper("Scottish fold"))
-        holder.add(PetsHelper("American Shorthair"))
-        holder.add(PetsHelper("Siamese cat"))
-        holder.add(PetsHelper("Maine coon"))
-        holder.add(PetsHelper("Birman"))
-        holder.add(PetsHelper("Bombay cat"))
-        holder.add(PetsHelper("Russian Blue"))
-        holder.add(PetsHelper("Turkish angora"))
-        holder.add(PetsHelper("Japanese Bobtail"))
-        holder.add(PetsHelper("Himalayan Cat"))
+        holder.add(PetsHelper("Persian cats", R.drawable.persiancat))
+        holder.add(PetsHelper("Scottish fold", R.drawable.scottishfold))
+        holder.add(PetsHelper("American Shorthair", R.drawable.americanshorthair))
+        holder.add(PetsHelper("Siamese cat", R.drawable.siamesecat))
+        holder.add(PetsHelper("Maine coon", R.drawable.mainecoon))
+        holder.add(PetsHelper("Birman", R.drawable.birman))
+        holder.add(PetsHelper("Bombay cat", R.drawable.bombaycat))
+        holder.add(PetsHelper("Russian Blue", R.drawable.russianblue))
+        holder.add(PetsHelper("Turkish angora", R.drawable.turkishangora))
+        holder.add(PetsHelper("Japanese Bobtail", R.drawable.japanesebobtail))
+        holder.add(PetsHelper("Himalayan Cat", R.drawable.himalayancat))
 
         return holder
     }

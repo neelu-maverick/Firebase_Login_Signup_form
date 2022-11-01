@@ -38,6 +38,7 @@ class TurtleAdapter : ListAdapter<PetsHelper, TurtleAdapter.TurtleViewHolder>(Di
 
     override fun onBindViewHolder(holder: TurtleViewHolder, position: Int) {
         SingleRowDataBinding.bind(holder.itemView).apply {
+            imageViewId.setImageResource(currentList[position].petsImage)
             imageNameId.text = currentList[position].petsName
         }
     }
