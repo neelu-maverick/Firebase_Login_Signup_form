@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentTurtleBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
 import com.example.firebase_login_signup_form.roomdb.PetDatabase
@@ -49,14 +50,14 @@ class TurtleFragment : Fragment() {
     private fun data(): ArrayList<PetsHelper>? {
 
         val holder: ArrayList<PetsHelper> = ArrayList()
-        holder.add(PetsHelper("Red-Eared Slider"))
-        holder.add(PetsHelper("Mississippi Map Turtle"))
-        holder.add(PetsHelper("Spotted Turtle"))
-        holder.add(PetsHelper("Reev's Turtle"))
-        holder.add(PetsHelper("Wood Turtle"))
-        holder.add(PetsHelper("Common Musk Turtle"))
-        holder.add(PetsHelper("African Sidenack Turtle"))
-        holder.add(PetsHelper("Eastern box Turtle"))
+        holder.add(PetsHelper("Red-Eared Slider", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Mississippi Map Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Spotted Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Reev's Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Wood Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Common Musk Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("African Sidenack Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Eastern box Turtle", R.drawable.germanshepherd))
 
         return holder
     }
@@ -67,8 +68,8 @@ class TurtleFragment : Fragment() {
         GlobalScope.launch {
 
             val petDataDao = petDatabase.petDataDao()
-           val names =  petDataDao.insertAll(PetsHelper(data().toString()))
-            Log.d("NAMES","$names")
+//           val names =  petDataDao.insertAll(PetsHelper(data().toString()))
+//            Log.d("NAMES","$names")
         }
         Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
     }

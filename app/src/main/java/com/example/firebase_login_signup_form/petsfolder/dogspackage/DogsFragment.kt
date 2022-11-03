@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentDogsBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
 import com.example.firebase_login_signup_form.roomdb.PetDatabase
@@ -49,17 +50,17 @@ class DogsFragment : Fragment() {
 
     private fun data(): ArrayList<PetsHelper>? {
         val holder: ArrayList<PetsHelper> = ArrayList()
-        holder.add(PetsHelper("German Shepherd"))
-        holder.add(PetsHelper("Bulldog"))
-        holder.add(PetsHelper("Labrador Retriever"))
-        holder.add(PetsHelper("Siberian Husky"))
-        holder.add(PetsHelper("Chow-chow"))
-        holder.add(PetsHelper("Dachshund"))
-        holder.add(PetsHelper("Great Dane"))
-        holder.add(PetsHelper("Pomeranian"))
-        holder.add(PetsHelper("American Bully"))
-        holder.add(PetsHelper("Maltipoo"))
-        holder.add(PetsHelper("Dalmatian"))
+        holder.add(PetsHelper("German Shepherd", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Bulldog", R.drawable.bulldog))
+        holder.add(PetsHelper("Labrador Retriever", R.drawable.labrador))
+        holder.add(PetsHelper("Siberian Husky", R.drawable.siberianhusky))
+        holder.add(PetsHelper("Chow-chow", R.drawable.chowchow))
+        holder.add(PetsHelper("Dachshund", R.drawable.dachshund))
+        holder.add(PetsHelper("Great Dane", R.drawable.greatdane))
+        holder.add(PetsHelper("Pomeranian", R.drawable.pomeranian))
+        holder.add(PetsHelper("American Bully", R.drawable.americanbully))
+        holder.add(PetsHelper("Maltipoo", R.drawable.maltipoo))
+        holder.add(PetsHelper("Dalmatian", R.drawable.dalmatian))
 
         return holder
     }
@@ -71,7 +72,7 @@ class DogsFragment : Fragment() {
 
             val petDataDao = petDatabase.petDataDao()
             //val names = petDataDao.insertAll(petsHelper = PetsHelper(data().toString()))
-          //  Log.d("NAMES","$names")
+            //  Log.d("NAMES","$names")
 
         }
         Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentFishBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
 import com.example.firebase_login_signup_form.roomdb.PetDatabase
@@ -49,31 +50,32 @@ class FishFragment : Fragment() {
 
     private fun data(): ArrayList<PetsHelper>? {
         val holder: ArrayList<PetsHelper> = ArrayList()
-        holder.add(PetsHelper("Catfish"))
-        holder.add(PetsHelper("Cichlids"))
-        holder.add(PetsHelper("Rainbow Fish"))
-        holder.add(PetsHelper("Sunfish"))
-        holder.add(PetsHelper("Angelfish"))
-        holder.add(PetsHelper("Barbs"))
-        holder.add(PetsHelper("Betta Fish"))
-        holder.add(PetsHelper("Clown Loach"))
-        holder.add(PetsHelper("Guppies"))
-        holder.add(PetsHelper("Platies and Swordtails"))
-        holder.add(PetsHelper("Rainbow Sharks"))
-        holder.add(PetsHelper("Blenny"))
-        holder.add(PetsHelper("Butterfly Fish"))
-        holder.add(PetsHelper("Triggerfish"))
+        holder.add(PetsHelper("Catfish", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Cichlids", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Rainbow Fish", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Sunfish", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Angelfish", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Barbs", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Betta Fish", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Clown Loach", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Guppies", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Platies and Swordtails", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Rainbow Sharks", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Blenny", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Butterfly Fish", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Triggerfish", R.drawable.germanshepherd))
 
         return holder
     }
+
     private fun initDatabase() {
         petDatabase = PetDatabase.getDatabase(requireContext())
 
         GlobalScope.launch {
 
             val petDataDao = petDatabase.petDataDao()
-           val names = petDataDao.insertAll(PetsHelper(data().toString()))
-            Log.d("NAMES","$names")
+//           val names = petDataDao.insertAll(PetsHelper(data().toString()))
+//            Log.d("NAMES","$names")
         }
         Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
     }

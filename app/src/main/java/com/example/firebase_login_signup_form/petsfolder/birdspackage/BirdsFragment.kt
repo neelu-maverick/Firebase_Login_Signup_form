@@ -1,12 +1,18 @@
 package com.example.firebase_login_signup_form.petsfolder.birdspackage
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebase_login_signup_form.OnClickListener
 import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentBirdsBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
@@ -14,7 +20,8 @@ import com.example.firebase_login_signup_form.roomdb.PetDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class BirdsFragment : Fragment() {
+
+class BirdsFragment : Fragment(), OnClickListener {
     lateinit var birdsBinding: FragmentBirdsBinding
     lateinit var birdsAdapter: BirdsAdapter
     lateinit var petDatabase: PetDatabase
@@ -37,7 +44,7 @@ class BirdsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        birdsAdapter = BirdsAdapter()
+        birdsAdapter = BirdsAdapter(this)
         birdsBinding.recyclerview.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = birdsAdapter
@@ -62,13 +69,24 @@ class BirdsFragment : Fragment() {
         return holder
     }
 
+    override fun onClick(position: Int) {
+        findNavController().navigate(R.id.action_birdsFragment_to_pictureFragment)
+        val imageDialog: View = layoutInflater.inflate(R.layout.fragment_picture, null)
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(imageDialog)
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
+    }
+
     private fun initDatabase() {
         petDatabase = PetDatabase.getDatabase(requireContext())
 
         GlobalScope.launch {
 
             val petDataDao = petDatabase.petDataDao()
-            val names = petDataDao.insertAll(PetsHelper(data().toString()))
+            // val names = petDataDao.insertAll(PetsHelper(data().toString()))
             //Log.d("NAMES", "$names")
         }
         Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()

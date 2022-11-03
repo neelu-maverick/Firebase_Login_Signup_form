@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/LoginFragment">
 
     <fragment
@@ -76,37 +75,70 @@
         android:id="@+id/dogsFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.dogspackage.DogsFragment"
         android:label="fragment_dogs"
-        tools:layout="@layout/fragment_dogs" />
+        tools:layout="@layout/fragment_dogs" >
+        <action
+            android:id="@+id/action_dogsFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
     <fragment
         android:id="@+id/birdsFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.birdspackage.BirdsFragment"
         android:label="fragment_birds"
-        tools:layout="@layout/fragment_birds" />
+        tools:layout="@layout/fragment_birds" >
+        <action
+            android:id="@+id/action_birdsFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
     <fragment
         android:id="@+id/catsFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.catspackage.CatsFragment"
         android:label="fragment_cats"
-        tools:layout="@layout/fragment_cats" />
+        tools:layout="@layout/fragment_cats" >
+        <action
+            android:id="@+id/action_catsFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fishFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.fishpackage.FishFragment"
         android:label="fragment_fish"
-        tools:layout="@layout/fragment_fish" />
+        tools:layout="@layout/fragment_fish" >
+        <action
+            android:id="@+id/action_fishFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
     <fragment
         android:id="@+id/rabbitsFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.rabbitpackage.RabbitsFragment"
         android:label="fragment_rabbits"
-        tools:layout="@layout/fragment_rabbits" />
+        tools:layout="@layout/fragment_rabbits" >
+        <action
+            android:id="@+id/action_rabbitsFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
     <fragment
         android:id="@+id/horsesFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.horsepackage.HorsesFragment"
         android:label="fragment_horses"
-        tools:layout="@layout/fragment_horses" />
+        tools:layout="@layout/fragment_horses" >
+        <action
+            android:id="@+id/action_horsesFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
     <fragment
         android:id="@+id/turtleFragment"
         android:name="com.example.firebase_login_signup_form.petsfolder.turtlepackage.TurtleFragment"
         android:label="fragment_turtle"
-        tools:layout="@layout/fragment_turtle" />
+        tools:layout="@layout/fragment_turtle" >
+        <action
+            android:id="@+id/action_turtleFragment_to_pictureFragment"
+            app:destination="@id/pictureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pictureFragment"
+        android:name="com.example.firebase_login_signup_form.PictureFragment"
+        android:label="fragment_picture"
+        tools:layout="@layout/fragment_picture" />
 
 
 </navigation>

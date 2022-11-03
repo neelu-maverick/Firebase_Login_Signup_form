@@ -5,10 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firebase_login_signup_form.OnClickListener
 import com.example.firebase_login_signup_form.databinding.SingleRowDataBinding
 import com.example.firebase_login_signup_form.dataclasses.PetsHelper
 
-class BirdsAdapter : ListAdapter<PetsHelper, BirdsAdapter.BirdsViewHolder>(Diffutil()) {
+class BirdsAdapter(var clickListener: OnClickListener) :
+    ListAdapter<PetsHelper, BirdsAdapter.BirdsViewHolder>(Diffutil()) {
 
     class Diffutil : DiffUtil.ItemCallback<PetsHelper>() {
         override fun areItemsTheSame(
@@ -40,8 +42,17 @@ class BirdsAdapter : ListAdapter<PetsHelper, BirdsAdapter.BirdsViewHolder>(Diffu
         SingleRowDataBinding.bind(holder.itemView).apply {
             imageViewId.setImageResource(currentList[position].petsImage)
             imageNameId.text = currentList[position].petsName
+            holder.init(clickListener)
         }
     }
 
-    class BirdsViewHolder(binding: SingleRowDataBinding) : RecyclerView.ViewHolder(binding.root)
+    class BirdsViewHolder(binding: SingleRowDataBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun init(action: OnClickListener) {
+
+            itemView.setOnClickListener {
+                action.onClick(adapterPosition)
+            }
+        }
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.firebase_login_signup_form
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.firebase_login_signup_form.adapters.CategoriesAdapter
 import com.example.firebase_login_signup_form.databinding.FragmentCategoriesViewBinding
 import com.example.firebase_login_signup_form.dataclasses.CategoriesHelper
-import com.example.firebase_login_signup_form.dataclasses.PetsHelper
-import com.example.firebase_login_signup_form.roomdb.PetDataDao
-import com.example.firebase_login_signup_form.roomdb.PetDatabase
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class CategoriesViewFragment : Fragment(), OnClickListener {
 

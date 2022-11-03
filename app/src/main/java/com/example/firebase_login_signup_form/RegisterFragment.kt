@@ -63,7 +63,7 @@ class RegisterFragment : Fragment() {
         }
 
         registerBinding.signinBtn.setOnClickListener {
-            registerBinding.progressBar.visibility = View.VISIBLE
+            registerBinding.progressbar.visibility = View.VISIBLE
 
             fAuth = Firebase.auth
 
@@ -88,7 +88,7 @@ class RegisterFragment : Fragment() {
             fAuth.createUserWithEmailAndPassword(email, pwd)
                 .addOnCompleteListener(requireContext() as Activity) { task ->
                     if (task.isSuccessful) {
-                        registerBinding.progressBar.visibility = View.INVISIBLE
+                        registerBinding.progressbar.visibility = View.INVISIBLE
                         registerBinding.et1.setText("")
                         registerBinding.et2.setText("")
                         registerBinding.et3.setText("")
@@ -96,7 +96,7 @@ class RegisterFragment : Fragment() {
                             Toast.LENGTH_LONG).show()
 
                     } else {
-                        registerBinding.progressBar.visibility = View.INVISIBLE
+                        registerBinding.progressbar.visibility = View.INVISIBLE
                         registerBinding.et1.setText("")
                         registerBinding.et2.setText("")
                         registerBinding.et3.setText("")
@@ -111,14 +111,14 @@ class RegisterFragment : Fragment() {
         }
 
         registerBinding.btnGoogle.setOnClickListener {
-            registerBinding.progressBar.visibility = View.VISIBLE
+            registerBinding.progressbar.visibility = View.VISIBLE
             googleLoginProcess()
-            registerBinding.progressBar.visibility = View.INVISIBLE
+            registerBinding.progressbar.visibility = View.INVISIBLE
 
         }
 
         registerBinding.btnFacebook.setOnClickListener {
-            registerBinding.progressBar.visibility = View.VISIBLE
+            registerBinding.progressbar.visibility = View.VISIBLE
             if (userLoggedIn()) {
                 fAuth.signOut()
 
@@ -127,19 +127,19 @@ class RegisterFragment : Fragment() {
                     .logInWithReadPermissions(this, listOf("public_profile", "email"))
             }
             facebookLoginProcess()
-            registerBinding.progressBar.visibility = View.INVISIBLE
+            registerBinding.progressbar.visibility = View.INVISIBLE
         }
 
         registerBinding.btnTwitter.setOnClickListener {
-            registerBinding.progressBar.visibility = View.VISIBLE
+            registerBinding.progressbar.visibility = View.VISIBLE
             twitterLoginProcess()
-            registerBinding.progressBar.visibility = View.INVISIBLE
+            registerBinding.progressbar.visibility = View.INVISIBLE
         }
 
         registerBinding.text4.setOnClickListener {
-            registerBinding.progressBar.visibility = View.VISIBLE
+            registerBinding.progressbar.visibility = View.VISIBLE
             googleMapsAuthentication()
-            registerBinding.progressBar.visibility = View.VISIBLE
+            registerBinding.progressbar.visibility = View.VISIBLE
         }
     }
 

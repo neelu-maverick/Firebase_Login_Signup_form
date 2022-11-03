@@ -71,8 +71,8 @@ class CatsFragment : Fragment() {
         GlobalScope.launch {
 
             val petDataDao = petDatabase.petDataDao()
-            val names = petDataDao.insertAll(PetsHelper(data().toString()))
-            Log.d("NAMES", "$names")
+//            val names = petDataDao.insertAll(PetsHelper(data().toString()))
+//            Log.d("NAMES", "$names")
 
         }
         Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
