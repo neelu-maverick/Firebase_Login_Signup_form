@@ -31,9 +31,9 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
 
         initRecyclerView()
         categoriesAdapter.submitList(data())
+        initFAB()
 
     }
-
 
     private fun initRecyclerView() {
         categoriesAdapter = CategoriesAdapter(this)
@@ -70,4 +70,11 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
             else -> Toast.makeText(context, "No fragment found", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun initFAB() {
+        categoriesViewBinding.addFab.setOnClickListener {
+            findNavController().navigate(R.id.action_categoriesViewFragment_to_categoryFloatingActionFragment)
+        }
+    }
+
 }

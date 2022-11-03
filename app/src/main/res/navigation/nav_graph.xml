@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_categoriesViewFragment_to_fishFragment"
             app:destination="@id/fishFragment" />
+        <action
+            android:id="@+id/action_categoriesViewFragment_to_categoryFloatingActionFragment"
+            app:destination="@id/categoryFloatingActionFragment" />
     </fragment>
     <fragment
         android:id="@+id/dogsFragment"
@@ -139,6 +142,11 @@
         android:name="com.example.firebase_login_signup_form.PictureFragment"
         android:label="fragment_picture"
         tools:layout="@layout/fragment_picture" />
+    <fragment
+        android:id="@+id/categoryFloatingActionFragment"
+        android:name="com.example.firebase_login_signup_form.floatingaction.CategoryFloatingActionFragment"
+        android:label="fragment_category_floating_action"
+        tools:layout="@layout/fragment_category_floating_action" />
 
 
 </navigation>

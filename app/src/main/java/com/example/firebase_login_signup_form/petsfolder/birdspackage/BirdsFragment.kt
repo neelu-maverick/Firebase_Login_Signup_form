@@ -1,13 +1,9 @@
 package com.example.firebase_login_signup_form.petsfolder.birdspackage
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -71,13 +67,6 @@ class BirdsFragment : Fragment(), OnClickListener {
 
     override fun onClick(position: Int) {
         findNavController().navigate(R.id.action_birdsFragment_to_pictureFragment)
-        val imageDialog: View = layoutInflater.inflate(R.layout.fragment_picture, null)
-        val dialog = Dialog(requireContext())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(imageDialog)
-        dialog.setCanceledOnTouchOutside(true)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.show()
     }
 
     private fun initDatabase() {

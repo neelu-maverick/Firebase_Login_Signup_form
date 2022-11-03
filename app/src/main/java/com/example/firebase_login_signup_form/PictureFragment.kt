@@ -1,24 +1,21 @@
 package com.example.firebase_login_signup_form
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.PointF
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.firebase_login_signup_form.databinding.FragmentPictureBinding
 import kotlin.math.atan2
 import kotlin.math.sqrt
 
-class PictureFragment : Fragment()
-//   , View.OnTouchListener
-{
+class PictureFragment : Fragment(), View.OnTouchListener {
 
     lateinit var pictureBinding: FragmentPictureBinding
     private val matrix = Matrix()
@@ -50,11 +47,15 @@ class PictureFragment : Fragment()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //pictureBinding.picureImage.setOnTouchListener(this)
 
+        pictureBinding.fullPicture.scaleType = ImageView.ScaleType.MATRIX
+
+        pictureBinding.textview.text = requireArguments().getString("ImageName").toString()
+        pictureBinding.fullPicture.setImageResource(requireArguments().getInt("ImageView"))
+
+        pictureBinding.fullPicture.setOnTouchListener(this)
     }
 
-/*
     /**
      * Determine the space between the first two fingers
      */
@@ -137,22 +138,20 @@ class PictureFragment : Fragment()
                     val tx = values[2]
                     val ty = values[5]
                     val sx = values[0]
-                    val xc = pictureBinding.picureImage.width / 2 * sx
-                    val yc = pictureBinding.picureImage.height / 2 * sx
+                    val xc = pictureBinding.fullPicture.width / 2 * sx
+                    val yc = pictureBinding.fullPicture.height / 2 * sx
                     matrix.postRotate(r, tx + xc, ty + yc)
                 }
             }
         }
-        pictureBinding.picureImage.imageMatrix = matrix
-        bmap = Bitmap.createBitmap(pictureBinding.picureImage.width,
-            pictureBinding.picureImage.height, Bitmap.Config.RGB_565)
+        pictureBinding.fullPicture.imageMatrix = matrix
+        bmap = Bitmap.createBitmap(pictureBinding.fullPicture.width,
+            pictureBinding.fullPicture.height, Bitmap.Config.RGB_565)
         val canvas = Canvas(bmap!!)
-        pictureBinding.picureImage.draw(canvas)
-        //fin.setImageBitmap(bmap);
+        pictureBinding.fullPicture.draw(canvas)
         //fin.setImageBitmap(bmap);
         return true
     }
 
-*/
 }
 
