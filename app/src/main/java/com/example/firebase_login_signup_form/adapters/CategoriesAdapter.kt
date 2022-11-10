@@ -9,7 +9,10 @@ import com.example.firebase_login_signup_form.OnClickListener
 import com.example.firebase_login_signup_form.databinding.CategoriesGridViewBinding
 import com.example.firebase_login_signup_form.dataclasses.CategoriesHelper
 
-class CategoriesAdapter(var clickListener: OnClickListener) :
+class CategoriesAdapter(
+    var clickListener: OnClickListener,
+    val categoryList: ArrayList<CategoriesHelper>,
+) :
     ListAdapter<CategoriesHelper, CategoriesAdapter.ViewHolder>(Diffutil()) {
 
 
@@ -36,13 +39,16 @@ class CategoriesAdapter(var clickListener: OnClickListener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         CategoriesGridViewBinding.bind(holder.itemView).apply {
+
             imageViewId.setImageResource(currentList[position].imageView)
             imageNameId.text = currentList[position].imageName
-            holder.init( clickListener )
+            holder.init(clickListener)
         }
     }
 
     class ViewHolder(binding: CategoriesGridViewBinding) : RecyclerView.ViewHolder(binding.root) {
+
+
         fun init(action: OnClickListener) {
 
             itemView.setOnClickListener {
@@ -50,5 +56,4 @@ class CategoriesAdapter(var clickListener: OnClickListener) :
             }
         }
     }
-
 }

@@ -56,7 +56,5 @@ class BirdsAdapter(var clickListener: OnClickListener) :
         }
     }
 
-    class BirdsViewHolder(binding: SingleRowDataBinding) : RecyclerView.ViewHolder(binding.root) {
-
-    }
+    class BirdsViewHolder(binding: SingleRowDataBinding) : RecyclerView.ViewHolder(binding.root)
 }

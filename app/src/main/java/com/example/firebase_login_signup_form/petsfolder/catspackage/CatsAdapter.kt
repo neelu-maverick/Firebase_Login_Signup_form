@@ -37,6 +37,7 @@ class CatsAdapter : ListAdapter<PetsHelper, CatsAdapter.CatsViewHolder>(Diffutil
     }
 
     override fun onBindViewHolder(holder: CatsAdapter.CatsViewHolder, position: Int) {
+
         SingleRowDataBinding.bind(holder.itemView).apply {
             imageViewId.setImageResource(currentList[position].petsImage)
             imageNameId.text = currentList[position].petsName

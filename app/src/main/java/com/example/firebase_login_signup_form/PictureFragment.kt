@@ -1,25 +1,32 @@
 package com.example.firebase_login_signup_form
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.PointF
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import com.example.firebase_login_signup_form.databinding.FragmentPictureBinding
 import kotlin.math.atan2
 import kotlin.math.sqrt
+
 
 class PictureFragment : Fragment(), View.OnTouchListener {
 
     lateinit var pictureBinding: FragmentPictureBinding
     private val matrix = Matrix()
     private val savedMatrix = Matrix()
+    private var canvas = Canvas()
 
     // we can be in one of these 3 states
     private val NONE = 0
@@ -48,12 +55,51 @@ class PictureFragment : Fragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        pictureBinding.fullPicture.scaleType = ImageView.ScaleType.MATRIX
+        // pictureBinding.fullPicture.scaleType = ImageView.ScaleType.MATRIX
 
         pictureBinding.textview.text = requireArguments().getString("ImageName").toString()
         pictureBinding.fullPicture.setImageResource(requireArguments().getInt("ImageView"))
 
         pictureBinding.fullPicture.setOnTouchListener(this)
+
+        pictureBinding.shareBtn.setOnClickListener {
+
+            //share text
+            val textIntent = Intent(Intent.ACTION_SEND)
+            textIntent.type = "text/plain"
+            textIntent.setPackage("com.whatsapp")
+            textIntent.putExtra(Intent.EXTRA_TEXT,
+                requireArguments().getString("ImageName").toString())
+            try {
+                activity?.startActivity(textIntent)
+            } catch (ex: Exception) {
+                Toast.makeText(requireContext(),
+                    "Whatsapp have not been installed.",
+                    Toast.LENGTH_SHORT).show()
+            }
+
+            //share image
+            val bitmap: Bitmap = pictureBinding.fullPicture.drawable.toBitmap()
+            val imageIntent = Intent(Intent.ACTION_SEND)
+            imageIntent.type = "image/*"
+            val path: String =
+                MediaStore.Images.Media.insertImage(requireActivity().contentResolver,
+                    bitmap,
+                    "",
+                    null)
+            val screenshotUri = Uri.parse(path)
+            //add image path
+            imageIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri)
+
+            Log.d("FILE", "$screenshotUri")
+            try {
+                startActivity(Intent.createChooser(imageIntent, "Share image using"))
+            } catch (ex: Exception) {
+                Toast.makeText(requireContext(),
+                    "Whatsapp have not been installed.",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     /**
@@ -147,9 +193,10 @@ class PictureFragment : Fragment(), View.OnTouchListener {
         pictureBinding.fullPicture.imageMatrix = matrix
         bmap = Bitmap.createBitmap(pictureBinding.fullPicture.width,
             pictureBinding.fullPicture.height, Bitmap.Config.RGB_565)
+        //val canvas = Canvas(bmap!!)
         val canvas = Canvas(bmap!!)
         pictureBinding.fullPicture.draw(canvas)
-        //fin.setImageBitmap(bmap);
+        //pictureBinding.fullPicture.setImageBitmap(bmap)
         return true
     }
 

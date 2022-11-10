@@ -49,16 +49,16 @@ class RabbitsFragment : Fragment() {
 
     private fun data(): ArrayList<PetsHelper>? {
         val holder: ArrayList<PetsHelper> = ArrayList()
-        holder.add(PetsHelper("Havana Rabbit", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Rex Rabbit", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Angora Rabbit", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Polish Rabbit", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Flaish Gaint Rabbit", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Teddy dwarf", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Plush lop", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Lilac Rabbit", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Swedish Hare", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Czech Rabbit", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Havana Rabbit", R.drawable.havanarabbit))
+        holder.add(PetsHelper("Rex Rabbit", R.drawable.rexrabbit))
+        holder.add(PetsHelper("Angora Rabbit", R.drawable.angorarabbit))
+        holder.add(PetsHelper("Polish Rabbit", R.drawable.polishrabbit))
+        holder.add(PetsHelper("Flemish Giant Rabbit", R.drawable.flamishgaintrabbit))
+        holder.add(PetsHelper("Teddy dwarf", R.drawable.dwardrabbit))
+        holder.add(PetsHelper("Plush lop", R.drawable.plushloprabbit))
+        holder.add(PetsHelper("Lilac Rabbit", R.drawable.lilacrabbit))
+        holder.add(PetsHelper("Swedish Hare", R.drawable.swedishrabbit))
+        holder.add(PetsHelper("Czech Rabbit", R.drawable.czechrabbit))
 
         return holder
     }

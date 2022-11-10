@@ -3,18 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/bg_round_corner.xml" value="0.1" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/btn_bg.xml" value="0.1" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/edittext_bg.xml" value="0.1" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/extra_bg.xml" value="0.167" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_add.xml" value="0.167" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_bubble.xml" value="0.1" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_camera.xml" value="0.2555" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_facebook.xml" value="0.1125" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_google.xml" value="0.1125" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_lock.xml" value="0.1935" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_mail.xml" value="0.183" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_person.xml" value="0.1935" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_pwd.xml" value="0.21" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_share.xml" value="0.2265" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_twitter.xml" value="0.1125" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/spinner_bg.xml" value="0.2545" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/font/alice.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -24,6 +28,8 @@
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_twitter.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/categories_grid_view.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/custom_toolbar.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_add_category_fa.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_add_pets_f_a.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_birds.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_categories.xml" value="0.2359375" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_categories_view.xml" value="0.25" />

@@ -1,12 +1,11 @@
 package com.example.firebase_login_signup_form.petsfolder.turtlepackage
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firebase_login_signup_form.R
 import com.example.firebase_login_signup_form.databinding.FragmentTurtleBinding
@@ -50,14 +49,14 @@ class TurtleFragment : Fragment() {
     private fun data(): ArrayList<PetsHelper>? {
 
         val holder: ArrayList<PetsHelper> = ArrayList()
-        holder.add(PetsHelper("Red-Eared Slider", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Mississippi Map Turtle", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Spotted Turtle", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Reev's Turtle", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Wood Turtle", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Common Musk Turtle", R.drawable.germanshepherd))
-        holder.add(PetsHelper("African Sidenack Turtle", R.drawable.germanshepherd))
-        holder.add(PetsHelper("Eastern box Turtle", R.drawable.germanshepherd))
+        holder.add(PetsHelper("Red-Eared Slider", R.drawable.redearedslider))
+        holder.add(PetsHelper("Mississippi Map Turtle", R.drawable.mississippimap))
+        holder.add(PetsHelper("Spotted Turtle", R.drawable.spottedturtle))
+        holder.add(PetsHelper("Reev's Turtle", R.drawable.reev_s_turtle))
+        holder.add(PetsHelper("Wood Turtle", R.drawable.woodturtle))
+        holder.add(PetsHelper("Common Musk Turtle", R.drawable.commonmusk))
+        holder.add(PetsHelper("African Sidenack Turtle", R.drawable.africansideneck))
+        holder.add(PetsHelper("Eastern box Turtle", R.drawable.easternbox))
 
         return holder
     }
