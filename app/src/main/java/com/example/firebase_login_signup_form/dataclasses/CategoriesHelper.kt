@@ -4,3 +4,4 @@ data class CategoriesHelper(
     val imageName: String,
     val imageView: Int
 )
+

@@ -48,7 +48,6 @@ class TwitterActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
                 Log.d("ERROR", "${e.message}")
-
             }
         }
     }

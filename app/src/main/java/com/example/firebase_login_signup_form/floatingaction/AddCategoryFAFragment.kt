@@ -15,7 +15,6 @@ import java.util.*
 class AddCategoryFAFragment : DialogFragment() {
 
     lateinit var addCategoryFABinding: FragmentAddCategoryFaBinding
-    //var getResult: ActivityResultLauncher<String>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +26,6 @@ class AddCategoryFAFragment : DialogFragment() {
             FragmentAddCategoryFaBinding.inflate(inflater, container, false)
         return addCategoryFABinding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,8 +51,6 @@ class AddCategoryFAFragment : DialogFragment() {
         }
 
     }
-
-
 
     override fun onStart() {
         super.onStart()

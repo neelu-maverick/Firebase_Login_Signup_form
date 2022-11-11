@@ -75,6 +75,6 @@ class CatsFragment : Fragment() {
 //            Log.d("NAMES", "$names")
 
         }
-        Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, "Inserted successfully", Toast.LENGTH_SHORT).show()
     }
 }

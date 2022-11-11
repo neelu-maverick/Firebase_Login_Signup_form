@@ -58,7 +58,7 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         registerBinding.profilePicture.setOnClickListener {
-            Log.d("CLICK","PROFILE")
+            Log.d("CLICK", "PROFILE")
             imageChooserFun()
         }
 
@@ -150,6 +150,7 @@ class RegisterFragment : Fragment() {
 
         launchSomeActivity.launch(i)
     }
+
     var launchSomeActivity = registerForActivityResult<Intent, ActivityResult>(
         ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -302,8 +303,5 @@ class RegisterFragment : Fragment() {
 
     private fun googleMapsAuthentication() {
         startActivity(Intent(context, MapsActivity::class.java))
-
     }
-
-
 }

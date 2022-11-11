@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keep class com.example.firebase_login_signup_form.dataclasses.*
+#-keepclassmembers com.example.firebase_login_signup_form
+-keep class com.example.firebase_login_signup_form.roomdb.*

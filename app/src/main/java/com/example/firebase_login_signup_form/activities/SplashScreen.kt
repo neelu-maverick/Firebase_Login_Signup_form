@@ -11,7 +11,8 @@ import com.example.firebase_login_signup_form.databinding.ActivitySplashScreenBi
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var splashBinding : ActivitySplashScreenBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        val splashBinding: ActivitySplashScreenBinding =
+            ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(splashBinding.root)
 
 
@@ -24,6 +25,6 @@ class SplashScreen : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 2000)
     }
 }

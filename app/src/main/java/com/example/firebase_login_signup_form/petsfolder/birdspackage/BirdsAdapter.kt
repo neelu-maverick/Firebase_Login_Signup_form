@@ -35,7 +35,7 @@ class BirdsAdapter(var clickListener: OnClickListener) :
         parent: ViewGroup,
         viewType: Int,
     ): BirdsAdapter.BirdsViewHolder {
-        return BirdsAdapter.BirdsViewHolder(SingleRowDataBinding.inflate(LayoutInflater.from(
+        return BirdsViewHolder(SingleRowDataBinding.inflate(LayoutInflater.from(
             parent.context),
             parent, false))
     }

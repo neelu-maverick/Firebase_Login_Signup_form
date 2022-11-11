@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
@@ -26,7 +27,6 @@ class PictureFragment : Fragment(), View.OnTouchListener {
     lateinit var pictureBinding: FragmentPictureBinding
     private val matrix = Matrix()
     private val savedMatrix = Matrix()
-    private var canvas = Canvas()
 
     // we can be in one of these 3 states
     private val NONE = 0
@@ -55,7 +55,7 @@ class PictureFragment : Fragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // pictureBinding.fullPicture.scaleType = ImageView.ScaleType.MATRIX
+        pictureBinding.fullPicture.scaleType = ImageView.ScaleType.CENTER_INSIDE
 
         pictureBinding.textview.text = requireArguments().getString("ImageName").toString()
         pictureBinding.fullPicture.setImageResource(requireArguments().getInt("ImageView"))
@@ -65,13 +65,14 @@ class PictureFragment : Fragment(), View.OnTouchListener {
         pictureBinding.shareBtn.setOnClickListener {
 
             //share text
-            val textIntent = Intent(Intent.ACTION_SEND)
-            textIntent.type = "text/plain"
-            textIntent.setPackage("com.whatsapp")
-            textIntent.putExtra(Intent.EXTRA_TEXT,
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "*/*"
+            intent.setPackage("com.whatsapp")
+
+            intent.putExtra(Intent.EXTRA_TEXT,
                 requireArguments().getString("ImageName").toString())
             try {
-                activity?.startActivity(textIntent)
+                activity?.startActivity(intent)
             } catch (ex: Exception) {
                 Toast.makeText(requireContext(),
                     "Whatsapp have not been installed.",
@@ -80,8 +81,8 @@ class PictureFragment : Fragment(), View.OnTouchListener {
 
             //share image
             val bitmap: Bitmap = pictureBinding.fullPicture.drawable.toBitmap()
-            val imageIntent = Intent(Intent.ACTION_SEND)
-            imageIntent.type = "image/*"
+            // val imageIntent = Intent(Intent.ACTION_SEND)
+            // imageIntent.type = "image/*"
             val path: String =
                 MediaStore.Images.Media.insertImage(requireActivity().contentResolver,
                     bitmap,
@@ -89,11 +90,9 @@ class PictureFragment : Fragment(), View.OnTouchListener {
                     null)
             val screenshotUri = Uri.parse(path)
             //add image path
-            imageIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri)
-
-            Log.d("FILE", "$screenshotUri")
+            intent.putExtra(Intent.EXTRA_STREAM, screenshotUri)
             try {
-                startActivity(Intent.createChooser(imageIntent, "Share image using"))
+                startActivity(Intent.createChooser(intent, "Share image using"))
             } catch (ex: Exception) {
                 Toast.makeText(requireContext(),
                     "Whatsapp have not been installed.",
@@ -135,8 +134,6 @@ class PictureFragment : Fragment(), View.OnTouchListener {
     }
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        // handle touch events here
-
         // handle touch events here
         // view = v as ImageView
         when (event!!.action and MotionEvent.ACTION_MASK) {
@@ -193,7 +190,6 @@ class PictureFragment : Fragment(), View.OnTouchListener {
         pictureBinding.fullPicture.imageMatrix = matrix
         bmap = Bitmap.createBitmap(pictureBinding.fullPicture.width,
             pictureBinding.fullPicture.height, Bitmap.Config.RGB_565)
-        //val canvas = Canvas(bmap!!)
         val canvas = Canvas(bmap!!)
         pictureBinding.fullPicture.draw(canvas)
         //pictureBinding.fullPicture.setImageBitmap(bmap)

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.firebase_login_signup_form.adapters.CategoriesAdapter
 import com.example.firebase_login_signup_form.databinding.FragmentAddCategoryFaBinding
@@ -14,14 +15,16 @@ import com.example.firebase_login_signup_form.databinding.FragmentCategoriesView
 import com.example.firebase_login_signup_form.dataclasses.CategoriesHelper
 import com.example.firebase_login_signup_form.floatingaction.AddCategoryFAFragment
 
-
 class CategoriesViewFragment : Fragment(), OnClickListener {
 
     lateinit var categoriesViewBinding: FragmentCategoriesViewBinding
     lateinit var categoriesAdapter: CategoriesAdapter
-    lateinit var categoryList: ArrayList<CategoriesHelper>
     lateinit var addCategoryFABinding: FragmentAddCategoryFaBinding
     var fabVisible = false
+
+    lateinit var categoryList: ArrayList<CategoriesHelper>
+    lateinit var selected_categoryList: ArrayList<CategoriesHelper>
+    var isMultiSelect = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +42,7 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         categoryList = ArrayList()
+        selected_categoryList = ArrayList()
         initRecyclerView()
         categoriesAdapter.submitList(data())
         initFAB()
@@ -46,9 +50,11 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
     }
 
     private fun initRecyclerView() {
-        categoriesAdapter = CategoriesAdapter(this, categoryList)
+        categoriesAdapter =
+            CategoriesAdapter(this, requireContext(), categoryList, selected_categoryList)
         categoriesViewBinding.galleryRecyclerview.apply {
             layoutManager = GridLayoutManager(context, 3)
+            itemAnimator = DefaultItemAnimator()
             adapter = categoriesAdapter
             setHasFixedSize(true)
         }
@@ -144,7 +150,9 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
             Toast.makeText(context, "Modify", Toast.LENGTH_SHORT).show()
         }
         categoriesViewBinding.fabDelete.setOnClickListener {
-            Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Select to delete", Toast.LENGTH_SHORT).show()
+
+
         }
     }
 

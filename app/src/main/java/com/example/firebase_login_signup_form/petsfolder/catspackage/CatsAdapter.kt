@@ -29,7 +29,6 @@ class CatsAdapter : ListAdapter<PetsHelper, CatsAdapter.CatsViewHolder>(Diffutil
         }
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatsAdapter.CatsViewHolder {
         return CatsAdapter.CatsViewHolder(SingleRowDataBinding.inflate(LayoutInflater.from(
             parent.context),
