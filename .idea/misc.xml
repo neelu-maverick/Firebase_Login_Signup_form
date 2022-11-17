@@ -18,6 +18,10 @@
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_pwd.xml" value="0.21" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_share.xml" value="0.2265" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_twitter.xml" value="0.1125" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_user.xml" value="0.1" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_video_library.xml" value="0.2435" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_volume_off.xml" value="0.1" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/ic_volume_on.xml" value="0.1" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/drawable/spinner_bg.xml" value="0.2545" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/font/alice.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
@@ -26,6 +30,7 @@
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_register.xml" value="0.2375" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/activity_twitter.xml" value="0.25" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/add_new_category.xml" value="0.1875" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/categories_grid_view.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/custom_toolbar.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_add_category_fa.xml" value="0.24947916666666667" />
@@ -37,6 +42,7 @@
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_cats.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_dogs.xml" value="0.25" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_exo_video_player.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_fish.xml" value="0.13072916666666667" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_gallery_view.xml" value="0.1" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_horses.xml" value="0.13072916666666667" />
@@ -44,10 +50,13 @@
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_maps.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_picture.xml" value="0.264" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_rabbits.xml" value="0.1" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_recodings.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/fragment_turtle.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/gallery_grid_view.xml" value="0.1724137931034483" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/single_row_data.xml" value="0.25" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/video_list_item_layout.xml" value="0.24259259259259258" />
+        <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/layout/videoview_single_row_data.xml" value="0.25" />
         <entry key="..\:/Users/orange/AndroidStudioProjects/Firebase_Login_Signup_form/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.241" />
       </map>
     </option>

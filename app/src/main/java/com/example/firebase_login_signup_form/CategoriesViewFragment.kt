@@ -19,12 +19,10 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
 
     lateinit var categoriesViewBinding: FragmentCategoriesViewBinding
     lateinit var categoriesAdapter: CategoriesAdapter
-    lateinit var addCategoryFABinding: FragmentAddCategoryFaBinding
     var fabVisible = false
-
     lateinit var categoryList: ArrayList<CategoriesHelper>
-    lateinit var selected_categoryList: ArrayList<CategoriesHelper>
-    var isMultiSelect = false
+
+    lateinit var addCategoryFaBinding: FragmentAddCategoryFaBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +31,7 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
         // Inflate the layout for this fragment
         categoriesViewBinding = FragmentCategoriesViewBinding.inflate(inflater, container, false)
 
-        addCategoryFABinding = FragmentAddCategoryFaBinding.inflate(inflater, container, false)
+        addCategoryFaBinding = FragmentAddCategoryFaBinding.inflate(inflater, container, false)
 
         return categoriesViewBinding.root
     }
@@ -42,21 +40,22 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         categoryList = ArrayList()
-        selected_categoryList = ArrayList()
         initRecyclerView()
         categoriesAdapter.submitList(data())
         initFAB()
 
     }
 
+
     private fun initRecyclerView() {
         categoriesAdapter =
-            CategoriesAdapter(this, requireContext(), categoryList, selected_categoryList)
+            CategoriesAdapter(this, categoryList)
         categoriesViewBinding.galleryRecyclerview.apply {
             layoutManager = GridLayoutManager(context, 3)
             itemAnimator = DefaultItemAnimator()
             adapter = categoriesAdapter
             setHasFixedSize(true)
+            // scrollToPosition(categoryList.size - 1)
         }
     }
 
@@ -69,6 +68,7 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
         holder.add(CategoriesHelper("Horses", R.drawable.horses))
         holder.add(CategoriesHelper("Turtles", R.drawable.turtls))
         holder.add(CategoriesHelper("Fish", R.drawable.fish))
+        holder.add(CategoriesHelper("Videos", R.drawable.ic_video_library))
 
         return holder
     }
@@ -83,11 +83,13 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
             4 -> findNavController().navigate(R.id.action_categoriesViewFragment_to_horsesFragment)
             5 -> findNavController().navigate(R.id.action_categoriesViewFragment_to_turtleFragment)
             6 -> findNavController().navigate(R.id.action_categoriesViewFragment_to_fishFragment)
+            7 -> findNavController().navigate(R.id.action_categoriesViewFragment_to_exoVideoPlayerFragment)
             else -> Toast.makeText(context, "No fragment found", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun initFAB() {
+
         fabVisible = false
         categoriesViewBinding.addFabHome.setOnClickListener {
             if (!fabVisible) {
@@ -100,6 +102,7 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
                 categoriesViewBinding.fabDelete.visibility = View.VISIBLE
 
                 categoriesViewBinding.addFabHome.setImageDrawable(resources.getDrawable(R.drawable.ic_cancel))
+
                 fabVisible = true
             } else {
                 categoriesViewBinding.fabCreate.hide()
@@ -116,31 +119,9 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
         }
 
         categoriesViewBinding.fabCreate.setOnClickListener {
+
             Toast.makeText(context, "Create", Toast.LENGTH_SHORT).show()
 
-//            val v = LayoutInflater.from(requireContext())
-//                .inflate(R.layout.fragment_add_category_fa, null)
-//
-//            val addDialog = AlertDialog.Builder(requireContext())
-//            addDialog.setView(v)
-//
-//            val name = addCategoryFABinding.nameTV.text.toString()
-//
-//            addCategoryFABinding.icCamera.setOnClickListener {
-//                pickImagefromGallery()
-//            }
-//
-//            addCategoryFABinding.addCategBtn.setOnClickListener {
-//
-//                categoryList.add(CategoriesHelper("Name : $name", pickImagefromGallery()))
-//                categoriesAdapter.notifyDataSetChanged()
-//            }
-//            addCategoryFABinding.nameTV.setText("")
-//            addCategoryFABinding.cancelBtn.setOnClickListener {
-//
-//            }
-//            addDialog.create()
-//            addDialog.show()
             AddCategoryFAFragment().show(parentFragmentManager, "MYDialogBox")
             // findNavController().navigate(R.id.action_categoriesViewFragment_to_addCategoryFAFragment)
 
@@ -151,10 +132,8 @@ class CategoriesViewFragment : Fragment(), OnClickListener {
         }
         categoriesViewBinding.fabDelete.setOnClickListener {
             Toast.makeText(context, "Select to delete", Toast.LENGTH_SHORT).show()
-
-
         }
     }
 
-
 }
+

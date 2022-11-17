@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_categoriesViewFragment_to_addCategoryFAFragment"
             app:destination="@id/addCategoryFAFragment" />
+        <action
+            android:id="@+id/action_categoriesViewFragment_to_exoVideoPlayerFragment"
+            app:destination="@id/exoVideoPlayerFragment" />
 
     </fragment>
     <fragment
@@ -148,6 +151,11 @@
         android:name="com.example.firebase_login_signup_form.floatingaction.AddCategoryFAFragment"
         android:label="fragment_add_category_fa"
         tools:layout="@layout/fragment_add_category_fa" />
+    <fragment
+        android:id="@+id/exoVideoPlayerFragment"
+        android:name="com.example.firebase_login_signup_form.videofolder.ExoVideoPlayerFragment"
+        android:label="fragment_exo_video_player"
+        tools:layout="@layout/fragment_exo_video_player" />
 
 
 </navigation>
