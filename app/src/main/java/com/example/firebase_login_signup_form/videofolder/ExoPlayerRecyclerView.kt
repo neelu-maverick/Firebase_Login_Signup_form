@@ -218,6 +218,7 @@ class ExoPlayerRecyclerView : RecyclerView {
         viewHolderParent = holder.itemView
         requestManager = holder.requestManager
         mediaContainer = holder.mediaContainer
+
         videoSurfaceView!!.player = videoPlayer
         viewHolderParent!!.setOnClickListener(videoViewClickListener)
 
