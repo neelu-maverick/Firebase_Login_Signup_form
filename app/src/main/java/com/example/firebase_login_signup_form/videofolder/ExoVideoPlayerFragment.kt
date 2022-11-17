@@ -14,10 +14,8 @@ import com.example.firebase_login_signup_form.databinding.FragmentExoVideoPlayer
 class ExoVideoPlayerFragment : Fragment() {
     lateinit var videoPlayerBinding: FragmentExoVideoPlayerBinding
 
-    // var mRecyclerView: ExoPlayerRecyclerView? = null
     private val mediaObjectList = ArrayList<MediaObjectHelper>()
     private var mAdapter: MediaRecyclerAdapter? = null
-    private val firstTime = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +45,6 @@ class ExoVideoPlayerFragment : Fragment() {
     }
 
     private fun initView() {
-        //mRecyclerView = view?.findViewById(R.id.exoPlayerRecyclerView)
         videoPlayerBinding.exoPlayerRecyclerView.layoutManager =
             LinearLayoutManager(requireContext())
     }

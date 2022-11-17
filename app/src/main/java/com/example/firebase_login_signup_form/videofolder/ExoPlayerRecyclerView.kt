@@ -228,6 +228,7 @@ class ExoPlayerRecyclerView : RecyclerView {
                 ProgressiveMediaSource.Factory(DefaultHttpDataSource.Factory())
                     .createMediaSource(MediaItem.fromUri(Uri.parse(mediaUrl)))
             videoPlayer!!.setMediaSource(videoSource)
+            videoPlayer!!.prepare()
             videoPlayer!!.playWhenReady = true
         }
     }
